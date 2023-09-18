@@ -171,7 +171,7 @@ c = get_config()  # noqa
 #         Local IP addresses (such as 127.0.0.1 and ::1) are allowed as local,
 #         along with hostnames configured in local_hostnames.
 #  Default: False
-# c.NotebookApp.allow_remote_access = False
+c.NotebookApp.allow_remote_access = True
 
 # Whether to allow the user to run the notebook as root.
 #  Default: False
@@ -347,7 +347,7 @@ c = get_config()  # noqa
 
 # The IP address the notebook server will listen on.
 #  Default: 'localhost'
-# c.NotebookApp.ip = 'localhost'
+# c.NotebookApp.ip = ''
 
 # Supply extra arguments that will be passed to Jinja environment.
 #  Default: {}
@@ -378,7 +378,7 @@ c = get_config()  # noqa
 #         Local IP addresses (such as 127.0.0.1 and ::1) are automatically accepted
 #         as local as well.
 #  Default: ['localhost']
-# c.NotebookApp.local_hostnames = ['localhost']
+c.NotebookApp.local_hostnames = ['8888-sonetto104-cipp5peterre-md91tjougd7.ws-eu104.gitpod.io']
 
 # The date format used by logging formatters for %(asctime)s
 #  See also: Application.log_datefmt
@@ -1441,3 +1441,4 @@ c = get_config()  # noqa
 c.NotebookApp.allow_remote_access = True
 c.NotebookApp.tornado_settings = {'headers': {
     'Content-Security-Policy': "frame-ancestors * "}}
+
