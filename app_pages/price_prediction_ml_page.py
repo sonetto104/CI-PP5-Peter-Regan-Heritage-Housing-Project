@@ -72,10 +72,10 @@ def price_prediction_ml_page_body():
     st.write("### Pipeline Performance")
     regression_performance(X_train=X_train, y_train=y_train,
                            X_test=X_test, y_test=y_test,
-                           pipeline=sale_price_pipe)
+                           pipeline=predict_price_pipeline)
 
     st.write("**Performance Plot**")
     regression_evaluation_plots(X_train=X_train, y_train=y_train,
                                 X_test=X_test,
-                                y_test=y_test, pipeline=sale_price_pipe,
+                                y_test=y_test, pipeline=predict_price_pipeline,
                                 alpha_scatter=0.5)
