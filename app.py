@@ -4,7 +4,7 @@ from app_pages.multipage import MultiPage
 # load pages scripts
 from app_pages.summary_page import project_summary_page
 from app_pages.hypothesis_page import project_hypothesis_page
-# from app_pages.sale_price_analysis_page import main
+from app_pages.sale_price_analysis_page import main
 # Create an instance of the app
 app = MultiPage(app_name="Heritage Housing Sale Price Predictor")
 
