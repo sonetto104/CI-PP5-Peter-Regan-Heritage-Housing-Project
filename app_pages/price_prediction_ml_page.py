@@ -68,28 +68,14 @@ def price_prediction_ml_page_body():
     )
     st.write("---")
 
-version = 'v1'
-X_train = pd.read_csv(
-        f"outputs/ml_pipeline/predict_price/{version}/X_train.csv")
-X_test = pd.read_csv(
-        f"outputs/ml_pipeline/predict_price/{version}/X_test.csv")
-y_train = pd.read_csv(
-        f"outputs/ml_pipeline/predict_price/{version}/y_train.csv")
-y_test = pd.read_csv(
-        f"outputs/ml_pipeline/predict_price/{version}/y_test.csv")
-print("Columns in X_train:", X_train.columns)
+    # display performance on both sets
+    st.write("### Pipeline Performance")
 
+    st.write("The key metrics evaluating the performance of the pipeline are shown below.")
 
-print("Columns in X_test:", X_test.columns)
+    regression_performance(X_train, y_train, X_test, y_test, predict_price_pipeline)
 
-# display performance on both sets
-# st.write("### Pipeline Performance")
+    st.write("The predicted sale price values have been compared to the actual values in the plots below. This shows that the predictions are generally close to the actual values.\n"
+        "Note: may take a few moments to load.")
 
-#     st.write("The key metrics evaluating the performance of the pipeline are shown below.")
-
-#     regression_performance(X_train, y_train, X_test, y_test, predict_price_pipeline)
-
-#     st.write("The predicted sale price values have been compared to the actual values in the plots below. This shows that the predictions are generally close to the actual values.\n"
-#         "Note: may take a few moments to load.")
-
-#     regression_evaluation_plots(X_train, y_train, X_test, y_test, predict_price_pipeline)
+    regression_evaluation_plots(X_train, y_train, X_test, y_test, predict_price_pipeline)
