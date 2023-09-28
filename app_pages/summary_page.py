@@ -32,7 +32,7 @@ def project_summary_page():
         f"We have two key business requirements:\n"
         f"* **Requirement 1:** The client is interested in understanding how "
         f"the house attributes correlate with the sale price. Therefore, the "
-        f"client expects data visualizations of the correlated variables "
+        f"client expects data visualisations of the correlated variables "
         f"against the sale prices for illustration.\n"
         f"* **Requirement 2:** The client is interested in predicting the "
         f"potential sale prices for properties in Ames, Iowa. Specifically, "

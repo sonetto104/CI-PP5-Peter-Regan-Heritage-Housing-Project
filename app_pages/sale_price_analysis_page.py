@@ -1,189 +1,183 @@
-import streamlit as st
+import plotly.express as px
 import numpy as np
+import streamlit as st
+from src.data_management import load_house_prices_data
 import matplotlib.pyplot as plt
 import seaborn as sns
 import ppscore as pps
-from src.data_management import load_house_prices_data
-
 sns.set_style("whitegrid")
 
 
-def main():
-    st.set_page_config(
-        page_title="Housing Sales Analysis",
-        page_icon="🏡",
-        layout="wide",
-        initial_sidebar_state="expanded",
-    )
+def main_sale_price_analysis():
 
-    st.title("Housing Sales Analysis Dashboard")
-    st.sidebar.title("Navigation")
-
-    page_options = [
-        "Overview",
-        "Correlation Study",
-        "Sale Price Analysis"
-    ]
-
-    page = st.sidebar.radio("Go to", page_options)
-
-    if page == "Overview":
-        page_overview()
-    elif page == "Correlation Study":
-        page_correlation_study()
-    elif page == "Sale Price Analysis":
-        page_sale_price_analysis()
-
-
-def page_overview():
-    st.write("### Overview")
-    st.info(
-        "This dashboard provides an overview of housing sales data, including "
-        "correlation analysis and insights into factors influencing sale prices."
-    )
-    st.write("---")
-
-    st.write("#### Business Requirements")
-    st.info(
-        "- The client is interested in discovering how the house attributes "
-        "correlate with the sale price.\n"
-        "- The client expects data visualizations of the correlated variables "
-        "against the sale price."
-    )
-    st.write("---")
-
-    st.write("#### Data Inspection")
-    st.info(
-        "The dataset contains information about various housing features and "
-        "their sale prices. Below, you can inspect the first 10 rows of the data."
-    )
+    # load data
     df = load_house_prices_data()
-    if st.checkbox("Inspect Housing Data"):
-        st.write(df.head(10))
-    st.write("---")
+    # Variables Identified in Correlation Study Notebook
+    vars_strongly_correlated_to_saleprice = ['OverallQual', 'GrLivArea',
+                                             'GarageArea', 'YearBuilt', '1stFlrSF', 'TotalBsmtSF', 'KitchenQual']
 
-    st.write("#### Key Insights")
-    st.info(
-        "Some of the key insights from the analysis include:\n"
-        "- Higher quality of materials and finish (OverallQual) correlates with"
-        " higher sale prices.\n"
-        "- Larger living areas (GrLivArea) and garage size (GarageArea) tend to"
-        " result in higher sale prices.\n"
-        "- Newer properties (YearBuilt) generally command higher prices.\n"
-        "- First-floor square footage (1stFlrSF)"
-        " influences sale prices positively."
-    )
-
-
-def page_correlation_study():
-    st.write("### Correlation Study")
-    st.info(
-        "This section explores the correlation between various housing "
-        "attributes and sale prices."
-    )
-    st.write("---")
-
-    st.write("#### Data Inspection")
-    st.info(
-        "You can inspect the first 10 rows of the dataset to get an idea of"
-        " the data."
-    )
-    df = load_house_prices_data()
-    if st.checkbox("Inspect Housing Data"):
-        st.write(df.head(10))
-    st.write("---")
-
-    st.write("#### Correlation Analysis")
-    st.info(
-        "A correlation study was conducted to better understand how the"
-        " variables are correlated with sale prices. Key findings include "
-        "the following attributes having strong correlations with sale prices:\n"
-        "- Overall Quality (OverallQual)\n"
-        "- Ground Living Area (GrLivArea)\n"
-        "- Garage Area (GarageArea)\n"
-        "- Year Built (YearBuilt)\n"
-        "- First Floor Square Footage (1stFlrSF)"
-    )
-    st.write("---")
-
-    st.write("#### Correlation Plots")
-    st.info(
-        "The following plots illustrate the correlation of key attributes with "
-        "sale prices."
-    )
-    correlation_to_sale_price_plots(df)
-
-
-def page_sale_price_analysis():
     st.write("### Sale Price Analysis")
-    st.info(
-        "This section provides an in-depth analysis of sale prices and their "
-        "correlation with various housing attributes."
+    st.success(
+        f"* As per the first business requirement, the client wishes to"
+        f" understand the correlation between a property's attributes/features"
+        f" and the sale price and requires visualisations to illustrate these"
+        f" correlations. \n"
     )
-    st.write("---")
 
-    st.write("#### Data Inspection")
-    st.info(
-        "You can inspect the first 10 rows of the dataset to get an idea"
-        " of the data."
-    )
-    df = load_house_prices_data()
-    if st.checkbox("Inspect Housing Data"):
+    # inspect data
+    if st.checkbox("Inspect Sale Price Dataset"):
+        st.write(
+            f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns. "
+            f" You may inspect the first 10 rows here.")
         st.write(df.head(10))
+
     st.write("---")
 
-    st.write("#### Key Attributes")
-    st.info(
-        "The following attributes are strongly correlated with sale prices and "
-        "are analyzed in detail:\n"
-        "- Overall Quality (OverallQual)\n"
-        "- Ground Living Area (GrLivArea)\n"
-        "- Garage Area (GarageArea)\n"
-        "- Year Built (YearBuilt)\n"
-        "- First Floor Square Footage (1stFlrSF)"
+    st.write("### Correlation Study")
+
+    vars_strongly_correlated_to_saleprice = ['OverallQual', 'GrLivArea',
+                                             'GarageArea', 'YearBuilt', '1stFlrSF', 'TotalBsmtSF', 'KitchenQual']
+
+    # Correlation Study Summary
+    st.write(
+        f"A correlation study was conducted to better understand how "
+        f"the variables are correlated to Sale Price. \n"
+        f" Below, the results from the Pearson and Spearman correlations"
+        f" are displayed in heatmaps. "
+        f"Based on the results of this study,"
+        f" the variables most strongly correlated to sale price are: "
+        f" **{vars_strongly_correlated_to_saleprice}**"
     )
-    st.write("---")
 
-    st.write("#### Correlation Analysis")
     st.info(
-        "Correlation heatmaps and bar plots are provided to visualize the "
-        "relationships between the selected attributes and sale prices."
-    )
-    correlation_plots(df)
+        f"*** Heatmap: Pearson Correlation *** \n\n"
+        f"The Pearson Correlation evaluates the linear relationship between "
+        f" two continuous variables. \n")
 
+    if st.checkbox("Pearson Correlation"):
+        calc_display_pearson_corr_heat(df)
 
-def correlation_to_sale_price_plots(df):
-    vars_to_study = [
-        'OverallQual',
-        'GrLivArea',
-        'GarageArea',
-        'YearBuilt',
-        '1stFlrSF'
-    ]
-    target_var = 'SalePrice'
+    st.info(
+        f"*** Heatmap: Spearman Correlation ***  \n\n"
+        f"The Spearman correlation evaluates monotonic relationship. "
+        f"Note this means the related variables behave similarly "
+        f"but the relationship may not be linear.")
 
-    for col in vars_to_study:
-        st.write(f"#### {col} vs. Sale Price")
+    if st.checkbox("Spearman Correlation"):
+        calc_display_spearman_corr_heat(df)
+
         st.info(
-            f"This scatterplot shows the relationship between {col} and Sale"
-            f" Price. "
-            f"The color represents the Overall Quality (OverallQual) of the"
-            f" property."
+            "The key correlations with Sale Price are as follows:\n"
+            "- Sale Price tends to increase with Overall Quality (OverallQual).\n"
+            "- Sale Price tends to increase with larger Groundlevel Living Area "
+            "(GrLivArea).\n"
+            "- Sale Price tends to increase with greater Garage Area (GarageArea)."
+            "\n"
+            "- Sale Price tends to increase with more Total Basement Area "
+            "(TotalBsmtSF).\n"
+            "- Sale Price tends to increase with newer properties (YearBuilt).\n"
+            "- Sale Price tends to increase with larger 1st Floor Square Footage "
+            "(1stFlrSF).\n\n"
+            "The scatterplots below illustrate these correlations."
+            " Note the scatterplots use darker shades of red to represent"
+            " OverallQual in addition to the variable being measured on the"
+            " X-axis."
         )
-        scatter_plot(df, col, target_var)
+
+    # Correlation plots adapted from the Data Cleaning Notebook
+    if st.checkbox("Correlation Plots of Variables vs Sale Price"):
+        correlation_to_sale_price_hist_scat(
+            df, vars_strongly_correlated_to_saleprice)
+
+    st.info(
+        f"*** Heatmap: Predictive Power Score (PPS) ***  \n\n"
+        f"Finally, the PPS detects linear or non-linear relationships "
+        f"between two variables.\n"
+        f"The score ranges from 0 (no predictive power) to 1 "
+        f"(perfect predictive power). \n"
+        f" As we can see, Overall Quality (OverallQual) is the variable"
+        f" with the highest predictive power for the Sale Price target.")
+
+    if st.checkbox("Predictive Power Score"):
+        calc_display_pps_matrix(df)
 
 
-def scatter_plot(df, col, target_var):
-    fig, axes = plt.subplots(figsize=(10, 6))
-    sns.scatterplot(data=df, x=col, y=target_var,
-                    hue='OverallQual', palette='viridis')
-    plt.title(f"{col} vs. Sale Price", fontsize=18)
+def correlation_to_sale_price_hist_scat(df, vars_to_study):
+    """ Display correlation plot between variables and sale price """
+    target_var = 'SalePrice'
+    for col in vars_to_study:
+        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))
+
+        # Histogram
+        sns.histplot(data=df, x=col, ax=ax1, palette='Blues')
+        ax1.set_title(f"{col} Histogram", fontsize=15)
+
+        # Scatter Plot
+        sns.scatterplot(data=df, x=col, y=target_var,
+                        hue='OverallQual', ax=ax2, palette='Reds')
+        ax2.set_title(f"{col} vs Sale Price", fontsize=15)
+
+        st.pyplot(fig)
+        st.write("\n\n")
+
+
+def calc_display_pearson_corr_heat(df):
+    """ Calcuate and display Pearson Correlation """
+    df_corr_pearson = df.corr(method="pearson")
+    heatmap_corr(df=df_corr_pearson, threshold=0.6,
+                 figsize=(12, 10), font_annot=10)
+
+
+def calc_display_spearman_corr_heat(df):
+    """ Calcuate and display Spearman Correlation """
+    df_corr_spearman = df.corr(method="spearman")
+    heatmap_corr(df=df_corr_spearman, threshold=0.6,
+                 figsize=(12, 10), font_annot=10)
+
+
+def calc_display_pps_matrix(df):
+    """ Calcuate and display Predictive Power Score """
+    pps_matrix_raw = pps.matrix(df)
+    pps_matrix = pps_matrix_raw.filter(['x', 'y', 'ppscore']).pivot(
+        columns='x', index='y', values='ppscore')
+    heatmap_pps(df=pps_matrix, threshold=0.15, figsize=(12, 10), font_annot=10)
+
+    pps_topscores = pps_matrix.iloc[19].sort_values(
+        key=abs, ascending=False)[1:6]
+
+    fig, axes = plt.subplots(figsize=(6, 3))
+    axes = plt.bar(x=pps_topscores.index, height=pps_topscores)
+    plt.xticks(rotation=90)
+    plt.title("Predictive Power Score for Sale Price", fontsize=15, y=1.05)
     st.pyplot(fig)
 
 
-def correlation_plots(df):
-    st.write("#### Pearson Correlation")
-    st.info(
-        "The Pearson Correlation evaluates the linear relationship between two"
-        " continuous variables."
-    )
+def heatmap_corr(df, threshold, figsize=(20, 12), font_annot=8):
+    """ Heatmap for correlations from CI template"""
+    if len(df.columns) > 1:
+        mask = np.zeros_like(df, dtype=bool)
+        mask[np.triu_indices_from(mask)] = True
+        mask[abs(df) < threshold] = True
+        fig, axes = plt.subplots(figsize=figsize)
+        axes = sns.heatmap(df, annot=True, xticklabels=True, yticklabels=True,
+                           mask=mask, cmap='viridis',
+                           annot_kws={"size": font_annot},
+                           ax=axes, linewidth=0.5
+                           )
+        axes.set_yticklabels(df.columns, rotation=0)
+        plt.ylim(len(df.columns), 0)
+        st.pyplot(fig)
+
+
+def heatmap_pps(df, threshold, figsize=(20, 12), font_annot=8):
+    """ Heatmap for predictive power score from CI template"""
+    if len(df.columns) > 1:
+        mask = np.zeros_like(df, dtype=bool)
+        mask[abs(df) < threshold] = True
+        fig, axes = plt.subplots(figsize=figsize)
+        axes = sns.heatmap(df, annot=True, xticklabels=True, yticklabels=True,
+                           mask=mask, cmap='rocket_r',
+                           annot_kws={"size": font_annot},
+                           linewidth=0.05, linecolor='grey')
+        plt.ylim(len(df.columns), 0)
+        st.pyplot(fig)
