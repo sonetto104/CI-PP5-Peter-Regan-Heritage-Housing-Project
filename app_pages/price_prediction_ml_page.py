@@ -63,19 +63,19 @@ def price_prediction_ml_page_body():
     st.image(sale_price_feat_importance)
 
     st.write(
-        f"These features were chosen because of their significance in"
+        f"These features were chosen because of their significance in" 
         f" predicting property sale prices."
     )
     st.write("---")
 
-    # display performance on both sets
+    # Evaluate performance on both sets
     st.write("### Pipeline Performance")
+    regression_performance(X_train=X_train, y_train=y_train,
+                           X_test=X_test, y_test=y_test,
+                           pipeline=sale_price_pipe)
 
-    st.write("The key metrics evaluating the performance of the pipeline are shown below.")
-
-    regression_performance(X_train, y_train, X_test, y_test, predict_price_pipeline)
-
-    st.write("The predicted sale price values have been compared to the actual values in the plots below. This shows that the predictions are generally close to the actual values.\n"
-        "Note: may take a few moments to load.")
-
-    regression_evaluation_plots(X_train, y_train, X_test, y_test, predict_price_pipeline)
+    st.write("**Performance Plot**")
+    regression_evaluation_plots(X_train=X_train, y_train=y_train,
+                                X_test=X_test,
+                                y_test=y_test, pipeline=sale_price_pipe,
+                                alpha_scatter=0.5)
