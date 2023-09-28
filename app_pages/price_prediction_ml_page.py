@@ -38,7 +38,7 @@ def price_prediction_ml_page_body():
         f" Feature engineering was carried out on the remaining data. "
         f"The model was then tuned using a hyperparameter search and was "
         f"found to "
-        f"**meet the business requirement** with an R2 Score of 0.75 or "
+        f"meet the business requirement with an R2 Score of 0.75 or "
         f"better on "
         f"both train and test sets. The model identified the five most "
         f"important features necessary to achieve the best predictive "
@@ -72,10 +72,10 @@ def price_prediction_ml_page_body():
     st.write("### Pipeline Performance")
     regression_performance(X_train=X_train, y_train=y_train,
                            X_test=X_test, y_test=y_test,
-                           pipeline=sale_price_pipe)
+                           pipeline=predict_price_pipeline)
 
     st.write("**Performance Plot**")
     regression_evaluation_plots(X_train=X_train, y_train=y_train,
                                 X_test=X_test,
-                                y_test=y_test, pipeline=sale_price_pipe,
+                                y_test=y_test, pipeline=predict_price_pipeline,
                                 alpha_scatter=0.5)
