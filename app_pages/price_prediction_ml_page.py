@@ -16,16 +16,16 @@ def price_prediction_ml_page_body():
         f"outputs/ml_pipeline/predict_price/{version}/best_regressor_pipeline.pkl"
     )
     sale_price_feat_importance = plt.imread(
-        f"outputs/ml_pipeline/predict_sale_price/{version}/features_importance.png"
+        f"outputs/ml_pipeline/predict_price/{version}/features_importance.png"
     )
     X_train = pd.read_csv(
         f"outputs/ml_pipeline/predict_price/{version}/X_train.csv")
     X_test = pd.read_csv(
         f"outputs/ml_pipeline/predict_price/{version}/X_test.csv")
     y_train = pd.read_csv(
-        f"outputs/ml_pipeline/predict_price/{version}/y_train.csv").squeeze()
+        f"outputs/ml_pipeline/predict_price/{version}/y_train.csv")
     y_test = pd.read_csv(
-        f"outputs/ml_pipeline/predict_price/{version}/y_test.csv").squeeze()
+        f"outputs/ml_pipeline/predict_price/{version}/y_test.csv")
 
     st.write("### ML Pipeline: Predict Property Sale Price")
     # Display pipeline training summary conclusions
@@ -68,14 +68,28 @@ def price_prediction_ml_page_body():
     )
     st.write("---")
 
-    # Evaluate performance on both sets
-    st.write("### Pipeline Performance")
-    regression_performance(X_train=X_train, y_train=y_train,
-                           X_test=X_test, y_test=y_test,
-                           pipeline=predict_price_pipeline)
+version = 'v1'
+X_train = pd.read_csv(
+        f"outputs/ml_pipeline/predict_price/{version}/X_train.csv")
+X_test = pd.read_csv(
+        f"outputs/ml_pipeline/predict_price/{version}/X_test.csv")
+y_train = pd.read_csv(
+        f"outputs/ml_pipeline/predict_price/{version}/y_train.csv")
+y_test = pd.read_csv(
+        f"outputs/ml_pipeline/predict_price/{version}/y_test.csv")
+print("Columns in X_train:", X_train.columns)
 
-    st.write("**Performance Plot**")
-    regression_evaluation_plots(X_train=X_train, y_train=y_train,
-                                X_test=X_test,
-                                y_test=y_test, pipeline=predict_price_pipeline,
-                                alpha_scatter=0.5)
+
+print("Columns in X_test:", X_test.columns)
+
+# display performance on both sets
+# st.write("### Pipeline Performance")
+
+#     st.write("The key metrics evaluating the performance of the pipeline are shown below.")
+
+#     regression_performance(X_train, y_train, X_test, y_test, predict_price_pipeline)
+
+#     st.write("The predicted sale price values have been compared to the actual values in the plots below. This shows that the predictions are generally close to the actual values.\n"
+#         "Note: may take a few moments to load.")
+
+#     regression_evaluation_plots(X_train, y_train, X_test, y_test, predict_price_pipeline)
