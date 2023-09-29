@@ -73,8 +73,6 @@ def predict_price_body():
                  f" to be:")
         st.write(f"**{total_value}**")
 
-
-
     st.write("#### Predicting the Sale Price of Any Property in Ames, Iowa")
 
     st.info(
