@@ -244,7 +244,6 @@ This page addresses the project's first business requirement and offers the clie
 This page fulfills the second Business Requirement and provides a tool for predicting sale prices. It features:
 
 - Input fields where users can enter property attributes to generate a sale price prediction.
-- Real-time display of the predicted sale price.
 - A specific functionality to predict sale prices for the client's inherited properties based on her input data.
 <details>
 <summary>Price Predictor Page Screenshots</summary>
