@@ -84,10 +84,8 @@ def predict_price_body():
     # Add widgets to input attributes
     X_live = DrawInputsWidgets()
 
-    price_prediction = predict_price(X_live, features, pipeline_regressor)
-
     if st.button("Predict Price"):
-   
+        price_prediction = predict_price(X_live, features, pipeline_regressor)
         st.success(f"Predicted house price: {price_prediction}")
 # Function to create the input widgets for user predictions
 
