@@ -20,7 +20,7 @@
     - [Business Case Assessment](#business-case-assessment)
   - [Dataset Content](#dataset-content)
   - [Project Hypotheses and Validation](#project-hypotheses-and-validation)
-  - [Mapping the business requirements to the Data Visualisations and ML tasks](#mapping-the-business-requirements-to-the-data-visualisations-and-ml-tasks)
+  - [Mapping Business Requirements to Data Visualisations and ML Tasks](#mapping-business-requirements-to-data-visualisations-and-ml-tasks)
   - [ML Business Case](#ml-business-case)
     - [Predict Sale Price](#predict-sale-price)
   - [Dashboard Design](#dashboard-design)
@@ -177,6 +177,32 @@ Our correlation analysis supported these hypotheses:
 
 These findings support our hypotheses, suggesting that house size, quality, and age significantly impact the sale price.
 
+## Mapping Business Requirements to Data Visualisations and ML Tasks
+
+**Business Requirement 1: Data Exploration and Correlation Analysis**
+- Our initial objective was to delve into the dataset, specifically focusing on property sale prices in Ames, Iowa.
+- We conducted comprehensive correlation studies, employing both Pearson and Spearman methods, to gain a deeper understanding of how various variables related to sale prices.
+- Furthermore, we created visually informative plots to illustrate key insights derived from the data.
+
+**Business Requirement 2: Regression Modelling and Data Analysis**
+- Our primary goal was to predict the sale prices of homes in Ames, Iowa. To achieve this, we constructed a regression model with sale price as the target variable.
+- Rigorous optimisation and evaluation steps were carried out to attain an R-squared (R2) value of 0.75 or higher, indicating the model's effectiveness.
+
+**Business Requirement 3: Online Application Development and Deployment**
+- We developed a user-friendly web application using Streamlit, offering comprehensive data analysis, visualization, and a prediction feature for property sale prices in Ames, Iowa.
+- Subsequently, the application was deployed on the Heroku platform, ensuring online accessibility for the client and other users.
+
+## ML Business Case
+
+### Predicting House Sale Prices with Machine Learning
+
+- Our objective is to develop an ML model capable of predicting the sale price, in dollars, for homes in Ames, Iowa. This task falls under regression, a supervised and uni-dimensional modeling approach.
+- The ultimate goal is to provide our client with a reliable tool for predicting the sale price of specific properties in Ames, Iowa, including the inherited properties of particular concern to the client.
+- The success criteria for our model include:
+  - Achieving an R2 score of at least 0.75 on both the training and test datasets.
+
+- The model's output is a continuous value representing the sale price in dollars. This web application is designed to be accessible to private homeowners and clients, allowing them to input their property details and obtain a sale price estimate. Real estate agents can also benefit by using the app to quickly provide estimates to prospective clients during live interactions. **However, note it is only applicable for homes in Ames, Iowa**.
+- The training dataset is sourced from a public dataset containing approximately 1,500 property sales records. It consists of a single target feature, the sale price, while the remaining 23 variables are considered features for prediction.
 
 
 
