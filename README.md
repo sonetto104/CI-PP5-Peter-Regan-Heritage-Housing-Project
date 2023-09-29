@@ -217,6 +217,10 @@ On this page, you'll find:
 - A concise overview of the dataset being used in the project.
 - A detailed description of the project's business requirements.
 - A link to this README if the client desires further context.
+<details>
+<summary>Project Summary Page Screenshot</summary>
+<img src="/media/project_summary_page.png">
+</details>
 
 ## Page 2: Sale Price Correlation Analysis
 
@@ -226,6 +230,14 @@ This page addresses the project's first business requirement and offers the clie
 - Pearson and Spearman correlation plots, highlighting relationships between dataset features and sale prices.
 - Histograms and scatterplots showcasing the most influential predictive features.
 - An analysis using Predictive Power Score (PPS) to assess feature predictability.
+<details>
+<summary>Sale Price Analysis Page Screenshots</summary>
+<img src="/media/sale_analysis_dataset.png">
+<img src="/media/sale_analysis_pearson.png">
+<img src="/media/sale_analysis_spearman.png">
+<img src="/media/sale_analysis_plots.png">
+<img src="/media/sale_analysis_pps.png">
+</details>
 
 ## Page 3: Sale Price Prediction
 
@@ -234,10 +246,19 @@ This page fulfills the second Business Requirement and provides a tool for predi
 - Input fields where users can enter property attributes to generate a sale price prediction.
 - Real-time display of the predicted sale price.
 - A specific functionality to predict sale prices for the client's inherited properties based on her input data.
+<details>
+<summary>Price Predictor Page Screenshots</summary>
+<img src="/media/price_predictor_one.png">
+<img src="/media/price_predictor_two.png">
+</details>
 
 ## Page 4: Hypotheses and Validation
 
 On this page, you'll find a comprehensive list of the project's hypotheses and a detailed account of how each hypothesis was tested and validated.
+<details>
+<summary>Sale Price Analysis Page Screenshots</summary>
+<img src="/media/hypothesis_and_validation_page.png">
+</details>
 
 ## Page 5: Machine Learning Model
 
@@ -246,5 +267,12 @@ This page offers insights into the Machine Learning (ML) model used in the proje
 - An overview of the ML pipeline employed for training and prediction.
 - A demonstration of feature importance to highlight key predictors.
 - A review of the performance metrics and results achieved by the ML model.
+<details>
+<summary>ML Model Page Screenshots</summary>
+<img src="/media/ml_pipeline_overview.png">
+<img src="/media/feature_importance_plot.png">
+<img src="/media/test_set_performance.png">
+<img src="/media/train_set_performance.png">
+</details>
 
 
