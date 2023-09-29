@@ -53,46 +53,34 @@ def predict_price_body():
 
     st.write("### Inherited Houses")
 
-    st.write("#### Features of Inherited Houses")
-    st.write(df_inherited_houses_data)
-
-    st.write("### Price prediction for the clients inherited properties:")
-    st.write(
-        "The model was used to individually predict the sale prices for the "
-        "inherited properties:\n"
-        f"  - Property 0: $130,868\n"
-        f"  - Property 1: $154,283\n"
-        f"  - Property 2: $160,965\n"
-        f"  - Property 3: $181,734\n"
-        f"Total Value: $627,564"
-    )
-    
     st.write("---")
 
-    st.write("### Price prediction for the clients inherited properties:")
-    inherited_df = load_inherited_house_data()
-    in_df = in_df.filter(sale_price_features)
+    st.write("### Price Prediction for the Client's Inherited Properties:")
+    inherited_df = load_inherited_houses_data()
+    inherited_df = inherited_df.filter(features)
 
-    st.write("* Features of Inherited Homes")
-    st.write(in_df)
+    st.write("* Features of Inherited Houses")
+    st.write(inherited_df)
 
     if st.button("Run Prediction on Inherited Homes"):
-        inherited_price_prediction = predict_sale_price(
-            in_df, sale_price_features, sale_price_pipe)
+        inherited_price_prediction = predict_price(
+            inherited_df, features, pipeline_regressor)
         total_value = inherited_price_prediction.sum()
         total_value = float(total_value.round(1))
         total_value = '${:,.2f}'.format(total_value)
 
-        st.write(f"* The total value of the inherited homes is estimated"
+        st.write(f"* The total value of the inherited properties is estimated"
                  f" to be:")
         st.write(f"**{total_value}**")
 
 
 
-    st.write("#### Any Properties")
+    st.write("#### Predicting the Sale Price of Any Property in Ames, Iowa")
 
     st.info(
-        f"The below can be used to input the key attributes of the house in Ames, Iowa, and output the predicted sales price."
+        f"Below, you can manipulate the input of property features into the"
+        f" model (within given limits) to predict the sale price of any house"
+        f" in Ames, Iowa."
     )
 
     # Add widgets to input attributes
