@@ -333,7 +333,6 @@ This section contains information on resources and technologies used to complete
 - **Ensemble Learning**: [XGBoost](https://xgboost.readthedocs.io/en/stable/)
 - **Regression Modeling**: [XGBoostRegressor](https://xgboost.readthedocs.io/en/stable/)
 - **Model Evaluation**: [r2_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html)
-- **Principal Component Analysis**: [PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html)
 
 ### App Development
 
