@@ -204,6 +204,47 @@ These findings support our hypotheses, suggesting that house size, quality, and 
 - The model's output is a continuous value representing the sale price in dollars. This web application is designed to be accessible to private homeowners and clients, allowing them to input their property details and obtain a sale price estimate. Real estate agents can also benefit by using the app to quickly provide estimates to prospective clients during live interactions. **However, note it is only applicable for homes in Ames, Iowa**.
 - The training dataset is sourced from a public dataset containing approximately 1,500 property sales records. It consists of a single target feature, the sale price, while the remaining 23 variables are considered features for prediction.
 
+## Dashboard Design
 
+The project was built using Streamlit and satisfies the client's requirement for visualisations of the data analysis. It contains the following pages:
+
+## Page 1: Project Summary
+
+On this page, you'll find:
+
+- A clear statement of the project's purpose and objectives.
+- Explanations of some project-specific terms and jargon.
+- A concise overview of the dataset being used in the project.
+- A detailed description of the project's business requirements.
+- A link to this README if the client desires further context.
+
+## Page 2: Sale Price Correlation Analysis
+
+This page addresses the project's first business requirement and offers the client the option to visualise various aspects of the dataset. It includes:
+
+- A sample representation of data from the dataset to provide an initial glimpse.
+- Pearson and Spearman correlation plots, highlighting relationships between dataset features and sale prices.
+- Histograms and scatterplots showcasing the most influential predictive features.
+- An analysis using Predictive Power Score (PPS) to assess feature predictability.
+
+## Page 3: Sale Price Prediction
+
+This page fulfills the second Business Requirement and provides a tool for predicting sale prices. It features:
+
+- Input fields where users can enter property attributes to generate a sale price prediction.
+- Real-time display of the predicted sale price.
+- A specific functionality to predict sale prices for the client's inherited properties based on her input data.
+
+## Page 4: Hypotheses and Validation
+
+On this page, you'll find a comprehensive list of the project's hypotheses and a detailed account of how each hypothesis was tested and validated.
+
+## Page 5: Machine Learning Model
+
+This page offers insights into the Machine Learning (ML) model used in the project, including:
+
+- An overview of the ML pipeline employed for training and prediction.
+- A demonstration of feature importance to highlight key predictors.
+- A review of the performance metrics and results achieved by the ML model.
 
 
