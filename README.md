@@ -19,7 +19,7 @@
   - [Business Requirements](#business-requirements)
     - [Business Case Assessment](#business-case-assessment)
   - [Dataset Content](#dataset-content)
-  - [Hypothesis, proposed validation and actual validation](#hypothesis-proposed-validation-and-actual-validation)
+  - [Project Hypotheses and Validation](#project-hypotheses-and-validation)
   - [Mapping the business requirements to the Data Visualisations and ML tasks](#mapping-the-business-requirements-to-the-data-visualisations-and-ml-tasks)
   - [ML Business Case](#ml-business-case)
     - [Predict Sale Price](#predict-sale-price)
@@ -150,6 +150,32 @@ You have already conducted a business case assessment, so you can also use that 
 |YearBuilt|Original construction date|1872 - 2010|
 |YearRemodAdd|Remodel date (same as construction date if no remodelling or additions)|1950 - 2010|
 |SalePrice|Sale Price|34900 - 755000|
+
+## Project Hypotheses and Validation
+
+In this project, we formulated and validated the following hypotheses:
+
+### Hypothesis 1: House Size and Sale Price
+
+We hypothesized that the size of a house is positively correlated with the sale price. This correlation is likely to be reflected in features such as `GrLivArea` (ground living space), `GarageArea`, and `1stFlrSF`, among others. Larger houses are expected to have higher sale prices.
+
+### Hypothesis 2: Property Quality and Sale Price
+
+Our second hypothesis proposed that the quality and condition of the property, represented by features like `OverallQual`, are positively correlated with the sale price. Higher-quality properties are anticipated to command higher sale prices.
+
+### Hypothesis 3: House Age and Sale Price
+
+The third hypothesis suggested a negative correlation between the age of a house, as represented by `YearBuilt`, and the sale price. Older houses are expected to have lower sale prices.
+
+Our correlation analysis supported these hypotheses:
+
+- We observed strong positive relationships between `Overall Quality (OverallQual)`, `Ground Living Area (GrLivArea)`, and `SalePrice`, indicating that houses of higher quality and larger living areas generally result in higher sale prices.
+
+- The study revealed a similar strong positive relationship between `1st Floor Square Footage (1stFlrSF)` and `SalePrice`, further confirming that larger houses tend to have higher sale prices.
+
+- A negative correlation was observed between `YearBuilt` and `SalePrice`, supporting the hypothesis that older houses tend to have lower sale prices.
+
+These findings support our hypotheses, suggesting that house size, quality, and age significantly impact the sale price.
 
 
 
