@@ -34,8 +34,11 @@
   - [Deployment](#deployment)
     - [Heroku](#heroku)
   - [Technologies](#technologies)
-    - [Development and Deployment](#development-and-deployment)
-    - [Main Data Analysis and Machine Learning](#main-data-analysis-and-machine-learning)
+    - [Development Tools and Environment](#development-tools-and-environment)
+    - [Data Analysis and Profiling](#data-analysis-and-profiling)
+    - [Data Visualisation](#data-visualisation)
+    - [Data Preparation and Feature Engineering](#data-preparation-and-feature-engineering)
+    - [Machine Learning and Modelling](#machine-learning-and-modelling)
   - [Credits](#credits)
     - [Code Sources](#code-sources)
 
@@ -302,49 +305,55 @@ As per current knowledge, there are no unfixed bugs in the app. There are some i
 
 This section contains information on resources and technologies used to complete this project.
 
-### Development and Deployment
+### Development Tools and Environment
 
-- [GitHub](https://github.com/) was used to create the project repository, story project files and record commits.
-- [Code Anywhere](https://codeanywhere.com/) was used as the development environment.
-- [Jupyter Notebooks](https://jupyter.org/) were used to analyse and engineer the data, and develop and evaluate the model pipeline.
-  - In the terminal type `jupyter notebook --NotebookApp.token='' --NotebookApp.password=''` to start the jupyter server.
-- [Heroku](https://www.heroku.com/) was used to deploy the project.
-- [Kaggle](https://www.kaggle.com/) was used to access the dataset
-- [Streamlit](https://streamlit.io/) was used to develop the online app interface.
+- **Version Control**: [GitHub](https://github.com/)
+- **Development Environment**: [Code Anywhere](https://codeanywhere.com/)
+- **Data Access**: [Kaggle](https://www.kaggle.com/)
+- **Deployment**: [Heroku](https://www.heroku.com/)
+- **Development Notebooks**: [Jupyter Notebooks](https://jupyter.org/)
 
-### Main Data Analysis and Machine Learning
+### Data Analysis and Profiling
 
-- [NumPy](https://numpy.org/) was used for mathematical operations for examples determining means, modes, and standard deviations.
-- [Pandas](https://pandas.pydata.org/) was used for reading and writing data files, inspecting, creating and manipulating series and dataframes.
-- [ydata_profiling](https://ydata-profiling.ydata.ai/docs/master/index.html) was used to create an extensive Profile Report of the dataset.
-- [PPScore](https://pypi.org/project/ppscore/) was used to determine the predictive power score of the data features.
-- [MatPlotLib](https://matplotlib.org/) and [Seaborn](https://seaborn.pydata.org/) were used for constructing plots to visualize the data analysis, specifically the heatmaps, correlation plots and historgram of feature importance.
-- [Feature Engine](https://feature-engine.trainindata.com/en/latest/index.html) was used for various data cleaning and preparation tasks:
-  - Dropping Features, and Imputation of missing variables.
-  - Ordinal Encoding, Numerical Transformations, Assessment of outliers, and Smart Correlation Assessment of variables.
-- [SciKit Learn](https://scikit-learn.org/stable/) was used for many machine learning tasks:
-  - Splitting train and test sets.
-  - Feature processing and selection.
-  - Gridsearch to determine the optimal regression model.
-  - Gridsearch to determine the optimal hyperparameters.
-  - Evaluation  of the model using r2_score.
-  - Principal Component Analysis and evaluation.
-- [XGBoost](https://xgboost.readthedocs.io/en/stable/) for the XGBoostRegressor algorithm.
+- **Data Manipulation**: [NumPy](https://numpy.org/), [Pandas](https://pandas.pydata.org/)
+- **Data Profiling**: [ydata_profiling](https://ydata-profiling.ydata.ai/docs/master/index.html)
+- **Predictive Power Analysis**: [PPScore](https://pypi.org/project/ppscore/)
+
+### Data Visualisation
+
+- **Visualisation Libraries**: [Matplotlib](https://matplotlib.org/), [Seaborn](https://seaborn.pydata.org/)
+
+### Data Preparation and Feature Engineering
+
+- **Data Cleaning and Preparation**: [Feature Engine](https://feature-engine.trainindata.com/en/latest/index.html)
+
+### Machine Learning and Modelling
+
+- **Machine Learning Toolkit**: [SciKit Learn](https://scikit-learn.org/stable/)
+- **Ensemble Learning**: [XGBoost](https://xgboost.readthedocs.io/en/stable/)
+- **Regression Modeling**: [XGBoostRegressor](https://xgboost.readthedocs.io/en/stable/)
+- **Model Evaluation**: [r2_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html)
+- **Principal Component Analysis**: [PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html)
+
+### App Development
+
+- **App Interface**: [Streamlit](https://streamlit.io/)
+
 
 ## Credits
 
 ### Code Sources 
 
-- Various functions and classes used in the development process, including HyperparameterOptimizationSearch, Feature Importance analysis, evaluation of train and test sets, PPS and Correlation Analysis, Missing Data Evaluation, and Data Cleaning Effect, were sourced from both the CI Churnometer Walkthrough Project and the CI course content. These components played a significant role in the Jupyter Notebooks during the project's development.
+- Various functions and classes used in the development process, including HyperparameterOptimizationSearch, Feature Importance analysis, evaluation of train and test sets, PPS and Correlation Analysis, Missing Data Evaluation, and Data Cleaning Effect, were sourced from both the Code Institute's Churnometer Walkthrough Project and the Code Institute course content. These components played a significant role in the Jupyter Notebooks during the project's development.
 
 - Additionally, the Steamlit pages used in this project were originally derived from the CI Churnometer Walkthrough Project and were subsequently customized and adapted to create the app deployed in this project.
 
 I thank my fellow students at Code Institute Ulrike Riemenschneider, Chris Cherng, Corentin Vidick and Toby Hullis whose projects were very helpful in showing me the way during the moments I inevitably became stuck.
 Their repos can be found here:
-[Ulrike Riemenschneider's Heritage Housing Project](https://github.com/URiem/heritage-housing-PP5)
-[Chris Cherng's Heritage Housing Project](https://github.com/ChrisCherng/heritage-housing)
-[Corentin Vidick's Heritage Housing Project](https://github.com/Corentin-Vidick/P5-heritage-housing-issues)
-[Toby Hullis's Heritage Housing Project](https://github.com/t-hullis/milestone-project-heritage-housing-issues)
+- [Ulrike Riemenschneider's Heritage Housing Project](https://github.com/URiem/heritage-housing-PP5)
+- [Chris Cherng's Heritage Housing Project](https://github.com/ChrisCherng/heritage-housing)
+- [Corentin Vidick's Heritage Housing Project](https://github.com/Corentin-Vidick/P5-heritage-housing-issues)
+- [Toby Hullis's Heritage Housing Project](https://github.com/t-hullis/milestone-project-heritage-housing-issues)
 
 
 
