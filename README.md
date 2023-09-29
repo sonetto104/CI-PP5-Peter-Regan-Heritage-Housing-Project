@@ -86,7 +86,7 @@ You have already conducted a business case assessment, so you can also use that 
     - The client is interested in predicting the house sale prices from her 4 inherited houses, and any other house in Ames, Iowa.<br>
 
 - Is there any business requirement that can be answered with conventional data analysis?
-    -Yes, we can use conventional data analysis to investigate how house attributes are correlated with the sale prices.
+    - Yes, we can use conventional data analysis to investigate how house attributes are correlated with the sale prices.
 
 - Does the client need a dashboard or an API endpoint?
     - The client needs a dashboard
