@@ -86,7 +86,7 @@ def predict_price_body():
 
     if st.button("Predict Price"):
         price_prediction = predict_price(X_live, features, pipeline_regressor)
-        st.success(f"Predicted house price: {price_prediction}")
+        
 # Function to create the input widgets for user predictions
 
 
