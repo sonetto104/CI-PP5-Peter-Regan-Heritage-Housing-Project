@@ -275,4 +275,30 @@ This page offers insights into the Machine Learning (ML) model used in the proje
 <img src="/media/train_set_performance.png">
 </details>
 
+## Unfixed Bugs
+
+As per current knowledge, there are no unfixed bugs in the app. There are some instances where some lines of code are slightly longer than 79 characters but not significantly. Oddly, "from src.data_management" is registering as an error in the CodeAnywhere IDE, but not on Gitpod. It does not effect the performance of the app at all, but it is something to be explored. 
+
+## Deployment
+
+### Heroku
+
+- The App live link is: <https://heritage-housing-peter-regan-f0bf9f7122d0.herokuapp.com/>
+- Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
+- The project was deployed to Heroku using the following steps.
+
+1. Log in to Heroku and create an App.
+2. At the Deploy tab, select GitHub as the deployment method.
+3. Make sure your app is using Heroku Stack-20 by following these steps:
+    a. In Heroku click on Account Settings (under the avatar menu) on the Heroku Dashboard.
+    b. Scroll down to the API Key section and click Reveal. Copy the key.
+    c. Back in your IDE workspace, enter the following command in the terminal: heroku login -i , and enter your email then API key that you copied when prompted.
+    d. Then use the command heroku stack:set heroku-20 -a <the_name_of_your_app>
+    e. Now deploy again in the Heroku app
+4. Select your repository name and click Search. Once it is found, click Connect.
+5. Select the branch you want to deploy, then click Deploy Branch.
+6. The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App on the top of the page to access your App.
+7. If the slug size is too large then add large files not required for the app to the .slugignore file.
+
+
 
