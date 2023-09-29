@@ -9,6 +9,11 @@ from src.data_management import (
 from src.machine_learning.evaluate_regression import regression_performance
 from src.machine_learning.predictive_analysis_ui import predict_price
 
+# Learning for the formatting of this page came from looking at these repos:
+# https://github.com/ChrisCherng/heritage-housing
+# https://github.com/URiem/heritage-housing-PP5
+# https://github.com/t-hullis/milestone-project-heritage-housing-issues/tree/main
+
 
 def predict_price_body():
 

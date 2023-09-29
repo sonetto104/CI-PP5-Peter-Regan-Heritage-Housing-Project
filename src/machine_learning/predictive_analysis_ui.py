@@ -2,6 +2,8 @@ import streamlit as st
 
 # Function predicts house prices using the regression pipeline
 
+#Credit to Ulrike Riemenschneider for providing the format for this
+# page - link to repo at https://github.com/URiem/heritage-housing-PP5
 
 def predict_price(X_live, features, sale_price_pipeline):
 
@@ -20,7 +22,7 @@ def predict_price(X_live, features, sale_price_pipeline):
     )
 
     # Format the value written to the page
-    # Formating learned from
+    # Formatting taken from
     # https://github.com/t-hullis/milestone-project-heritage-housing-issues/tree/main
     if len(price_prediction) == 1:
         price = float(price_prediction.round(1))
