@@ -30,7 +30,6 @@
     - [Page 4: Hypotheses and Validation](#page-4-hypotheses-and-validation)
     - [Page 5: Machine Learning Model](#page-5-machine-learning-model)
   - [Unfixed Bugs](#unfixed-bugs)
-  - [PEP8 Compliance Testing](#pep8-compliance-testing)
   - [Deployment](#deployment)
     - [Heroku](#heroku)
   - [Technologies](#technologies)
