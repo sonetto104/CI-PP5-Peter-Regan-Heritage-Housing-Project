@@ -27,7 +27,7 @@
     - [Page 1: Project Summary](#page-1-project-summary)
     - [Page 2: Sale Price Correlation Analysis](#page-2-sale-price-correlation-analysis)
     - [Page 3: Sale Price Prediction](#page-3-sale-price-prediction)
-    - [Page 4: Project Hypothese and Validation](#page-4-project-hypothese-and-validation)
+    - [Page 4: Project Hypotheses and Validation](#page-4-project-hypothese-and-validation)
     - [Page 5: Machine Learning Model](#page-5-machine-learning-model)
   - [Unfixed Bugs](#unfixed-bugs)
   - [PEP8 Compliance Testing](#pep8-compliance-testing)
