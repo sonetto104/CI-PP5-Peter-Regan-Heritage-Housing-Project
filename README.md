@@ -200,6 +200,7 @@ These findings support our hypotheses, suggesting that house size, quality, and 
 - The ultimate goal is to provide our client with a reliable tool for predicting the sale price of specific properties in Ames, Iowa, including the inherited properties of particular concern to the client.
 - The success criteria for our model include:
   - Achieving an R2 score of at least 0.75 on both the training and test datasets.
+  - The model is considered a failure if: after 12 months of usage, the model predictions are 50% off more than 30% of the time, and/or the R2 score is less than 0.75.
 
 - The model's output is a continuous value representing the sale price in dollars. This web application is designed to be accessible to private homeowners and clients, allowing them to input their property details and obtain a sale price estimate. Real estate agents can also benefit by using the app to quickly provide estimates to prospective clients during live interactions. **However, note it is only applicable for homes in Ames, Iowa**.
 - The training dataset is sourced from a public dataset containing approximately 1,500 property sales records. It consists of a single target feature, the sale price, while the remaining 23 variables are considered features for prediction.
